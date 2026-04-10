@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DHT Sensor Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1>🌡️ Weather Station</h1>
+                <p class="subtitle">DHT Sensor Real-time Monitoring Dashboard</p>
+            </div>
+            <div class="status-indicator">
+                <div class="status-dot" id="statusDot"></div>
+                <span id="statusText">Connecting...</span>
+            </div>
+        </header>
+
+        <!-- Main Dashboard -->
+        <main class="dashboard">
+            <!-- Temperature Card -->
+            <div class="card temperature-card">
+                <div class="card-header">
+                    <h2>🌡️ Temperature</h2>
+                </div>
+                <div class="card-content">
+                    <div class="gauge-container">
+                        <svg class="gauge" viewBox="0 0 200 200">
+                            <circle class="gauge-background" cx="100" cy="100" r="90"/>
+                            <circle class="gauge-progress" cx="100" cy="100" r="90" id="tempGauge"/>
+                            <text class="gauge-text" x="100" y="110" id="tempValue">--°C</text>
+                        </svg>
+                    </div>
+                    <div class="temperature-range">
+                        <div class="range-item cold">
+                            <span class="range-label">Cold</span>
+                        </div>
+                        <div class="range-item cool">
+                            <span class="range-label">Cool</span>
+                        </div>
+                        <div class="range-item warm">
+                            <span class="range-label">Warm</span>
+                        </div>
+                        <div class="range-item hot">
+                            <span class="range-label">Hot</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Humidity Card -->
+            <div class="card humidity-card">
+                <div class="card-header">
+                    <h2>💧 Humidity</h2>
+                </div>
+                <div class="card-content">
+                    <div class="gauge-container">
+                        <svg class="gauge" viewBox="0 0 200 200">
+                            <circle class="gauge-background humidity-bg" cx="100" cy="100" r="90"/>
+                            <circle class="gauge-progress humidity-progress" cx="100" cy="100" r="90" id="humidityGauge"/>
+                            <text class="gauge-text" x="100" y="110" id="humidityValue">--%</text>
+                        </svg>
+                    </div>
+                    <div class="humidity-status">
+                        <div class="status-bar">
+                            <div class="status-fill" id="humidityBar"></div>
+                        </div>
+                        <p class="status-description" id="humidityDesc">Loading...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rain Probability Card -->
+            <div class="card rain-card">
+                <div class="card-header">
+                    <h2>🌧️ Rain Probability</h2>
+                </div>
+                <div class="card-content">
+                    <div class="rain-container">
+                        <svg class="rain-icon" viewBox="0 0 100 100">
+                            <circle cx="50" cy="30" r="15" fill="none" stroke="#4da6ff" stroke-width="2" opacity="0.3"/>
+                            <path d="M 50 48 Q 40 60 35 75" stroke="#87ceeb" stroke-width="2" fill="none" opacity="0.7"/>
+                            <path d="M 50 48 Q 50 60 45 75" stroke="#87ceeb" stroke-width="2" fill="none" opacity="0.7"/>
+                            <path d="M 50 48 Q 60 60 65 75" stroke="#87ceeb" stroke-width="2" fill="none" opacity="0.7"/>
+                        </svg>
+                        <div class="rain-percentage">
+                            <span id="rainValue">--%</span>
+                            <p id="rainDesc">Analyzing...</p>
+                        </div>
+                    </div>
+                    <div class="probability-wheel">
+                        <div class="wheel-segment" id="rainWheel"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Last Update Info -->
+        <footer class="footer">
+            <p>Last updated: <span id="lastUpdate">-</span></p>
+            <p class="update-interval">Data refreshes every 5 seconds</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
