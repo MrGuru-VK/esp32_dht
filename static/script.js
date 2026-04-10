@@ -56,16 +56,16 @@ function updateHumidity(humidity) {
     // Update humidity description
     let description = '';
     if (humidity < 30) {
-        description = '🏜️ Very Dry';
+        description = 'Very Dry';
         humidityDesc.style.color = '#ff6b6b';
     } else if (humidity < 50) {
-        description = '😊 Comfortable';
+        description = 'Comfortable';
         humidityDesc.style.color = '#ffa500';
     } else if (humidity < 70) {
-        description = '💧 Moderate';
+        description = 'Moderate';
         humidityDesc.style.color = '#4da6ff';
     } else {
-        description = '💦 High';
+        description = 'High';
         humidityDesc.style.color = '#51cf66';
     }
     humidityDesc.textContent = description;
@@ -84,19 +84,19 @@ function updateRainProbability(rainProb) {
     // Update rain description
     let description = '';
     if (rainProb < 20) {
-        description = '☀️ Clear Sky';
+        description = 'Clear Sky';
         rainDesc.style.color = '#ffa500';
     } else if (rainProb < 40) {
-        description = '⛅ Partly Cloudy';
+        description = 'Partly Cloudy';
         rainDesc.style.color = '#b0b8c1';
     } else if (rainProb < 60) {
-        description = '🌤️ Cloudy';
+        description = 'Cloudy';
         rainDesc.style.color = '#87ceeb';
     } else if (rainProb < 80) {
-        description = '🌧️ Rain Likely';
+        description = 'Rain Likely';
         rainDesc.style.color = '#4da6ff';
     } else {
-        description = '⛈️ Rainstorm Warning';
+        description = 'Rainstorm Warning';
         rainDesc.style.color = '#ff4757';
     }
     rainDesc.textContent = description;
@@ -126,9 +126,9 @@ async function fetchSensorData() {
         // Update connection status
         setStatus(true);
         
-        console.log('✅ Data updated:', data);
+        console.log(' Data updated:', data);
     } catch (error) {
-        console.error('❌ Error fetching data:', error);
+        console.error(' Error fetching data:', error);
         setStatus(false);
         
         // Show error message
@@ -155,7 +155,7 @@ function setStatus(connected) {
  * Initialize the dashboard
  */
 function initDashboard() {
-    console.log('🚀 Initializing DHT Sensor Dashboard...');
+    console.log(' Initializing DHT Sensor Dashboard...');
     
     // Fetch data immediately
     fetchSensorData();
@@ -199,7 +199,7 @@ function addSVGGradient() {
  * Simulate data updates for demo (remove in production)
  */
 function simulateDataUpdates() {
-    console.log('📊 Running in DEMO mode with simulated data');
+    console.log('Running in DEMO mode with simulated data');
     // This allows the dashboard to work without a real ESP32
     // In production, the API will fetch from the actual ESP32
 }
@@ -214,10 +214,10 @@ document.addEventListener('DOMContentLoaded', function() {
 // Optional: Add keyboard shortcut to manually refresh
 document.addEventListener('keydown', function(e) {
     if (e.ctrlKey && e.key === 'r') {
-        console.log('🔄 Manual refresh triggered');
+        console.log(' Manual refresh triggered');
         fetchSensorData();
     }
 });
 
 // Log module loaded
-console.log('📡 DHT Sensor Frontend Script Loaded');
+console.log(' DHT Sensor Frontend Script Loaded');

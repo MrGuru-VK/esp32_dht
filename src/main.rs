@@ -60,8 +60,8 @@ async fn script() -> impl Responder {
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
-    println!("🌡️ DHT Sensor Web Server starting...");
-    println!("📍 Server running at http://localhost:8080");
+    println!("DHT Sensor Web Server starting...");
+    println!("Server running at http://localhost:8080");
 
     HttpServer::new(|| {
         App::new()
