@@ -1,8 +1,6 @@
 use actix_web::{web, App, HttpServer, HttpResponse, Responder};
 use serde::{Deserialize, Serialize};
 use chrono::Local;
-
-/// Sensor data structure
 #[derive(Debug, Serialize, Deserialize, Clone)]
 struct SensorData {
     temperature: f32,
@@ -11,10 +9,8 @@ struct SensorData {
     timestamp: String,
 }
 
-/// Mock sensor data - in production, this would fetch from ESP32
 async fn fetch_sensor_data() -> SensorData {
-    // TODO: Replace with actual ESP32 API call
-    // Example: let response = reqwest::Client::new()
+    // let response = request::Client::new()
     //     .get("http://192.168.1.100/sensor")
     //     .send()
     //     .await
@@ -24,34 +20,32 @@ async fn fetch_sensor_data() -> SensorData {
     //     .unwrap();
 
     SensorData {
-        temperature: 24.5,
-        humidity: 65.0,
-        rain_probability: 30.0,
+        temperature: 100.0,
+        humidity: 0.0,
+        rain_probability: 0.0,
         timestamp: Local::now().format("%H:%M:%S").to_string(),
     }
 }
 
-/// API endpoint to get current sensor data
 async fn get_sensor_data() -> impl Responder {
     let data = fetch_sensor_data().await;
     HttpResponse::Ok().json(data)
 }
-
-/// Serve the HTML frontend
+//html handler 
 async fn index() -> impl Responder {
     HttpResponse::Ok()
         .content_type("text/html; charset=utf-8")
         .body(include_str!("../static/index.html"))
 }
 
-/// Serve CSS
+// css handler 
 async fn style() -> impl Responder {
     HttpResponse::Ok()
         .content_type("text/css; charset=utf-8")
         .body(include_str!("../static/style.css"))
 }
 
-/// Serve JavaScript
+// JavaScript handler
 async fn script() -> impl Responder {
     HttpResponse::Ok()
         .content_type("application/javascript; charset=utf-8")
@@ -60,8 +54,8 @@ async fn script() -> impl Responder {
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
-    println!("DHT Sensor Web Server starting...");
-    println!("Server running at http://localhost:8080");
+    println!(" DHT Sensor Web Server starting...");
+    println!(" Server running at http://localhost:8080");
 
     HttpServer::new(|| {
         App::new()

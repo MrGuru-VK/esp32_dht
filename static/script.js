@@ -155,7 +155,7 @@ function setStatus(connected) {
  * Initialize the dashboard
  */
 function initDashboard() {
-    console.log(' Initializing DHT Sensor Dashboard...');
+    console.log('Initializing DHT Sensor Dashboard...');
     
     // Fetch data immediately
     fetchSensorData();
@@ -199,14 +199,14 @@ function addSVGGradient() {
  * Simulate data updates for demo (remove in production)
  */
 function simulateDataUpdates() {
-    console.log('Running in DEMO mode with simulated data');
+    console.log(' Running in DEMO mode with simulated data');
     // This allows the dashboard to work without a real ESP32
     // In production, the API will fetch from the actual ESP32
 }
 
 // Start the dashboard when DOM is ready
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('✨ DOM loaded, starting dashboard...');
+    console.log(' DOM loaded, starting dashboard...');
     initDashboard();
     simulateDataUpdates();
 });
@@ -220,4 +220,4 @@ document.addEventListener('keydown', function(e) {
 });
 
 // Log module loaded
-console.log(' DHT Sensor Frontend Script Loaded');
+console.log('📡 DHT Sensor Frontend Script Loaded');

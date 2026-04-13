@@ -12,7 +12,7 @@
  * - Arduino IDE or PlatformIO
  * - Board: ESP32 Dev Module
  * - Flash Frequency: 80MHz
- */
+ 
 
 #include <DHT.h>
 #include <WiFi.h>
